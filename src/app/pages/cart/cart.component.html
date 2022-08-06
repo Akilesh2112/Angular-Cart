@@ -10,7 +10,7 @@
         {{ item.title }}
       </ion-label>
       <ion-text slot="end" color="dark">
-        {{ item.price | currency:'INR' }}
+        {{ item.price * item.amount | currency:'INR' }}
       </ion-text>
     </ion-item>
   </ion-list>
