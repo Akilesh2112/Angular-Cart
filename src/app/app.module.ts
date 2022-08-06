@@ -17,9 +17,10 @@ import { SharedModule } from './components/shared.module';
 
 
 //Importing Material
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import {MatCardModule} from '@angular/material/card';
     SharedModule,
     MatGridListModule,
     MatCardModule,
-    IonicModule
+    IonicModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

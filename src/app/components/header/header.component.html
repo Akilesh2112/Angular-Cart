@@ -4,8 +4,8 @@
         <span>FOOdi</span>
         <span class="example-spacer"></span>
 
-        <button mat-mini-fab color="dark" (click)="openCart()">
-            <mat-icon matBadge="4" matBadgeColor="accent">shopping_cart</mat-icon>
+        <button mat-mini-fab color="dark" (click)="openCart('cart')">
+            <mat-icon matBadge={{cartCount}} matBadgeColor="accent">shopping_cart</mat-icon>
         </button>
     </mat-toolbar-row>
 </mat-toolbar>

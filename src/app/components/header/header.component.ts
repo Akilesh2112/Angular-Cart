@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { AnimationController, ModalController } from '@ionic/angular';
 import { CartComponent } from 'src/app/pages/cart/cart.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,26 +11,20 @@ import { CartComponent } from 'src/app/pages/cart/cart.component';
 })
 export class HeaderComponent implements OnInit {
 
-  cartCount = 0;
-
-  constructor(private cartService: CartService, private modalCtrl: ModalController) { }
+  
+  constructor(private router: Router, private cartService: CartService, private modalCtrl: ModalController) { }
+  
+    cartCount = 0;
 
   ngOnInit(): void {
     this.cartService.getCartCount().subscribe(value => {
-      if (value > 0) {
-        // this.animateCart();
-      }
       this.cartCount = value;
+    }
+    );
   }
 
+  async openCart(pageName:string) {
+    this.router.navigate([`${pageName}`]);
+  }
   
-  async openCart() {
-    const modal = await this.modalCtrl.create({
-      component: CartModalPage,
-      cssClass: 'custom-modal'
-    });
-
-    await modal.present();
-  }
-
 }

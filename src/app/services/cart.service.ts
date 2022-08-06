@@ -15,7 +15,7 @@ export interface Product {
 })
 export class CartService {
 
-  private cart = {};
+  private cart: any = {};
   private cartItems = new BehaviorSubject(0);
 
   constructor() { }
@@ -34,6 +34,27 @@ export class CartService {
     this.cartItems.next(this.cartItems.value + 1);
   }
 
+
+
+  // function to remove one product 
+  removeProduct(product: Product) {
+    if (this.cart[product.id]) {
+      this.cart[product.id].amount -= 1;
+      if (this.cart[product.id].amount === 0) {
+        delete this.cart[product.id];
+      }
+    }
+    this.cartItems.next(this.cartItems.value - 1);
+  }
+
+
+
+  deleteItem(product: Product) {
+    delete this.cart[product.id];
+    this.cartItems.next(this.cartItems.value - 1);
+  }
+
+
   getCartCount() {
     return this.cartItems.asObservable();
   }
@@ -45,6 +66,4 @@ export class CartService {
     }
     return cartItems;
   }
-}
-
 }

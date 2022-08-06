@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
@@ -15,7 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatBadgeModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   exports: [HeaderComponent]
 })

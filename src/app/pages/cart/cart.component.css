@@ -1,0 +1,12 @@
+.cart {
+  padding: 50px;
+  padding-top: 80px;
+}
+.cart .cart-header {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+ion-footer ion-toolbar {
+  padding-bottom: 0px;
+}

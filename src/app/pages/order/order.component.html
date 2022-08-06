@@ -6,11 +6,11 @@
                 <ion-card-content>
                     <ion-label>
                         <b>{{ p.title}}</b>
-                        <p>{{ p.price | currency: 'USD' }}</p>
+                        <p>{{ p.price | currency: 'INR' }}</p>
                     </ion-label>
                 </ion-card-content>
                 <ion-button class="ion-no-margin" expand="full" color="primary" (click)="addProduct(p)">
-                    <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+                    <p>Add to cart</p> <mat-icon matBadgeColor="accent">add</mat-icon>
                 </ion-button>
             </ion-card>
         </ion-col>
