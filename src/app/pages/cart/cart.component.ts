@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService, Product } from '../../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
 
   cart: any[] = [];
-  cartSum = 0;
+  cartSum: number = 0;
 
   constructor(private cartService: CartService,
     private router: Router,
@@ -19,21 +19,20 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
-    console.log(this.cart);
-    this.cartSum = this.cart.reduce((val, item) => val += +(item.price), 0);
+    this.cartSum = this.cart.reduce((val, item) => val += +(item.price * item.amount), 0);
   }
 
   dec(id: any) {
     this.cartService.removeProduct(id);
     this.cart = this.cartService.getCart();
-    this.cartSum = this.cart.reduce((val, item) => val += +(item.price), 0);
-    console.log(id);
-    
+    this.cartSum = this.cart.reduce((val, item) => val += +(item.price * item.amount), 0);
   }
+
   inc(id: any) {
     this.cartService.addProduct(id);
-    console.log(id);
-
+    this.cart = this.cartService.getCart();
+    this.cartSum = this.cart.reduce((val, item) => val += +(item.price * item.amount), 0);
+    this.cartSum += 1;
   }
 
   dismiss() {

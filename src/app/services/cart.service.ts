@@ -22,6 +22,7 @@ export class CartService {
 
 
   addProduct(product: Product) {
+
     if (!this.cart[product.id]) {
       this.cart[product.id] = {
         amount: 1,
@@ -30,6 +31,7 @@ export class CartService {
     } else {
       this.cart[product.id].amount += 1;
     }
+
 
     this.cartItems.next(this.cartItems.value + 1);
   }
